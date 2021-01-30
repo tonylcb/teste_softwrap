@@ -1,20 +1,16 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Cadastrados = ({ dados }) => {
-  const { id } = useParams();
-
+const Cadastrados = ({ dado }) => {
   return (
     <div>
-      <p>{dados.nome}</p>
-      <p>{dados.idade}</p>
-      <p>{dados.estadoCivil}</p>
-      <p>{dados.cpf}</p>
-      <p>{dados.cidade}</p>
-      <p>{dados.estado}</p>
-      <Link to={`tabela/${id}`}>
-        <button>Editar</button>
-      </Link>
+      <p>{dado.nome}</p>
+      <p>{dado.idade}</p>
+      <p>{dado.estadoCivil}</p>
+      <p>{dado.cpf}</p>
+      <p>{dado.cidade}</p>
+      <p>{dado.estado}</p>
+      <Link to={`/edit/${dado.id}`}>Editar</Link>
       <button>Excluir</button>
     </div>
   );

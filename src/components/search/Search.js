@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Lista from '../../components/lista/Lista';
+import Lista from '../lista/Lista';
 
-const Search = ({ loading }) => {
+const Search = () => {
   const [search, setSearch] = useState('');
   const [lista, setLista] = useState([]);
 
   useEffect(() => {
-    let params = {};
+    const params = {};
 
     if (search) {
       params.nome_like = search;
@@ -24,7 +24,7 @@ const Search = ({ loading }) => {
         value={search}
         onChange={(ev) => setSearch(ev.target.value)}
       />
-      <Lista lista={lista} loading={!lista.length} />
+      <Lista dados={lista} loading={!lista.length} />
     </div>
   );
 };
