@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import Lista from '../lista/Lista';
+import useApi from '../utilities/useApi';
 
 const Search = () => {
   const [search, setSearch] = useState('');
-  const [lista, setLista] = useState([]);
+  const [load, setLoad] = useApi({
+    url: '/cadastro',
+    method: 'get',
+    params: { nome_like: search || undefined },
+  });
 
   useEffect(() => {
-    const params = {};
-
-    if (search) {
-      params.nome_like = search;
-    }
-    axios.get('http://localhost:5000/cadastro', { params }).then((response) => {
-      setLista(response.data);
-    });
+    load();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
+
   return (
     <div>
       <input
@@ -24,7 +23,11 @@ const Search = () => {
         value={search}
         onChange={(ev) => setSearch(ev.target.value)}
       />
-      <Lista dados={lista} loading={!lista.length} />
+      <Lista
+        dados={setLoad.data}
+        loading={setLoad.loading}
+        error={setLoad.error}
+      />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import useApi from '../utilities/useApi';
 
 const formFields = [
   {
@@ -29,59 +29,68 @@ const formFields = [
   },
 ];
 
-const initialValue = formFields.reduce((acc, field) => {
-  return {
-    ...acc,
-    [field.title]: '',
-  };
-}, {});
+const initialValue = {
+  nome: '',
+  idade: '',
+  estadoCivil: '',
+  cpf: '',
+  cidade: '',
+  estado: '',
+};
 
 const Form = ({ id }) => {
-  const [form, setForm] = useState(id ? null : initialValue);
-  const navigate = useNavigate();
-  console.log(id);
+  const [values, setValues] = useState(id ? null : initialValue);
+  let navigate = useNavigate();
+  const [loadInfo] = useApi({
+    url: `/cadastro/${id}`,
+    mathod: 'get',
+    onCompleted: (response) => {
+      setValues(response.data);
+    },
+  });
+
+  const [save, setSave] = useApi({
+    url: id ? `/cadastro/${id}` : '/cadastro',
+    method: id ? 'put' : 'post',
+    onCompleted: (response) => {
+      if (!response.error) {
+        navigate('/');
+      }
+    },
+  });
 
   useEffect(() => {
     if (id) {
-      axios.get(`http://localhost:5000/cadastro/${id}`).then((response) => {
-        setForm(response.data);
-      });
+      loadInfo();
     }
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
-  function handleChange({ target }) {
-    const { id, value } = target;
-    setForm({ ...form, [id]: value });
+  function onChange({ target }) {
+    const { name, value } = target;
+    setValues({ ...values, [name]: value });
   }
 
-  function handleSubmit(event) {
+  function onSubmit(event) {
     event.preventDefault();
-
-    const method = id ? 'put' : 'post';
-
-    const url = id
-      ? `http://localhost:5000/cadastro/${id}`
-      : `http://localhost:5000/cadastro`;
-
-    axios[method](url, form).then((response) => {
-      navigate('/');
-    });
+    save({ data: values });
   }
-
   return (
     <div>
-      {!form ? (
+      {!values ? (
         <div>Carregando...</div>
       ) : (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={onSubmit}>
+          {setSave.loading && <span>Salvando dados...</span>}
           {formFields.map(({ id, label }) => (
             <div key={id}>
               <label htmlFor={id}>{label}</label>
               <input
                 type="text"
                 id={id}
-                value={form[id]}
-                onChange={handleChange}
+                name={id}
+                value={values[id]}
+                onChange={onChange}
               />
             </div>
           ))}

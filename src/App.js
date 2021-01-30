@@ -4,7 +4,6 @@ import Header from './components/header/Header';
 import Tabela from './pages/tabela/Tabela';
 import Footer from './components/footer/Footer';
 import Home from './pages/home/Home';
-import Form from './components/formulario/Form';
 
 function App() {
   return (
@@ -14,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="tabela" element={<Tabela />} />
-          <Route path="/edit/:id" element={<Form />} />
+          <Route path="/edit/:id" element={<Home />} />
         </Routes>
         <Footer />
       </BrowserRouter>

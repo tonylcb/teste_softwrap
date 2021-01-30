@@ -8,46 +8,6 @@
       "cidade": "Recife",
       "estado": "Pernambuco",
       "id": 1
-    },
-    {
-      "undefined": "",
-      "nome": "teste",
-      "idade": "teste",
-      "estadoCivil": "teste",
-      "cpf": "teste",
-      "cidade": "teste",
-      "estado": "teste",
-      "id": 2
-    },
-    {
-      "undefined": "",
-      "nome": "aaaa",
-      "idade": "aaaa",
-      "estadoCivil": "aaaa",
-      "cpf": "aaaa",
-      "cidade": "aaaa",
-      "estado": "aaaa",
-      "id": 3
-    },
-    {
-      "undefined": "",
-      "nome": "123",
-      "idade": "123",
-      "estadoCivil": "123",
-      "cpf": "123",
-      "cidade": "123",
-      "estado": "123",
-      "id": 4
-    },
-    {
-      "undefined": "",
-      "nome": "321",
-      "idade": "321",
-      "estadoCivil": "321",
-      "cpf": "321",
-      "cidade": "321",
-      "estado": "321",
-      "id": 5
     }
   ]
 }
