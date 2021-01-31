@@ -85,7 +85,7 @@ const Formulario = ({ id }) => {
               {setSave.loading && <span>Salvando dados...</span>}
               {formFields.map(({ id, label }) => (
                 <div key={id}>
-                  <Field type="text" name={id} label={id} />
+                  <Field type="text" name={id} label={label} />
                 </div>
               ))}
               <button type="submit">Salvar</button>
