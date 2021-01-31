@@ -8,6 +8,15 @@
       "cidade": "Recife",
       "estado": "Pernambuco",
       "id": 1
+    },
+    {
+      "nome": "Zonathan",
+      "idade": "70",
+      "estadoCivil": "Solteiro",
+      "cpf": "032198789213",
+      "cidade": "Bali",
+      "estado": "Indonesia",
+      "id": 2
     }
   ]
 }

@@ -1,17 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Lista from '../lista/Lista';
 import useApi from '../utilities/useApi';
 
 const Search = () => {
+  const mountRef = useRef(null);
   const [search, setSearch] = useState('');
   const [load, setLoad] = useApi({
+    debounceDelay: 300,
     url: '/cadastro',
     method: 'get',
     params: { nome_like: search || undefined },
   });
 
   useEffect(() => {
-    load();
+    load({ debounced: mountRef.current });
+
+    if (!mountRef.current) {
+      mountRef.current = true;
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
 
