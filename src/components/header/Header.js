@@ -8,11 +8,11 @@ import styled from 'styled-components';
 const Logo = styled.img`
   max-width: 200px;
   width: 100%;
-  min-width: 120px;
+  min-width: 160px;
 
   @media (max-width: 499px) {
     max-width: 200px;
-    min-width: 180px;
+    min-width: 160px;
   } ;
 `;
 
@@ -48,7 +48,7 @@ const HeaderApp = styled.header`
 
 const Header = () => {
   return (
-    <HeaderApp className="d-flex align-items-center pt-4 pb-4">
+    <HeaderApp className="d-flex align-items-center justify-content-around pt-4 pb-4">
       <div className=" text-center">
         <Logo src={logoSoftwrap} alt="logo softwrap" />
       </div>
