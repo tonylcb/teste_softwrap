@@ -5,11 +5,11 @@ const Field = ({ name, id, label, ...restProps }) => {
   const [field, meta] = useField({ name, id, ...restProps });
 
   return (
-    <>
+    <div className="py-2">
       {label && <label htmlFor={id ?? name}>{label}</label>}
-      <input {...field} name={name} id={id ?? name} />
+      <input className="form-control" {...field} name={name} id={id ?? name} />
       {meta.error && <span>{meta.error}</span>}
-    </>
+    </div>
   );
 };
 

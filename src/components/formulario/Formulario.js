@@ -4,33 +4,27 @@ import useApi from '../utilities/useApi';
 import Field from './Field/Field';
 import { Formik, Form } from 'formik';
 import schema from './schema';
+import styled from 'styled-components';
 
-const formFields = [
-  {
-    id: 'nome',
-    label: 'Nome',
-  },
-  {
-    id: 'idade',
-    label: 'Idade',
-  },
-  {
-    id: 'estadoCivil',
-    label: 'Estado Civil',
-  },
-  {
-    id: 'cpf',
-    label: 'CPF',
-  },
-  {
-    id: 'cidade',
-    label: 'Cidade',
-  },
-  {
-    id: 'estado',
-    label: 'Estado',
-  },
-];
+const ButtonSubmit = styled.button`
+  background-color: #dc523c;
+  border-radius: 100px;
+  padding: 8px 10px;
+  color: white;
+  border: none;
+  min-width: 200px;
+  font-size: 1.1rem;
+  margin: 0 auto;
+  transition: 0.25s ease;
+  &:hover {
+    background-color: #ff7a64;
+    transform-origin: left;
+  }
+  @media (max-width: 499px) {
+    min-width: 150px;
+    font-size: 1rem;
+  } ;
+`;
 
 const initialValue = {
   nome: '',
@@ -69,9 +63,15 @@ const Formulario = ({ id }) => {
     save({ data: formValues });
   }
 
+  const fundoForm = {
+    backgroundColor: 'white',
+    borderRadius: '10px',
+    maxHeight: '332px',
+  };
+
   const values = id ? loadInfo.data : initialValue;
   return (
-    <div>
+    <div className="animeLeft">
       {!values ? (
         <div>Carregando...</div>
       ) : (
@@ -81,14 +81,29 @@ const Formulario = ({ id }) => {
           validationSchema={schema}
         >
           {() => (
-            <Form>
+            <Form
+              className="shadow-sm p-3 mb-5 bg-white rounded"
+              style={fundoForm}
+            >
               {setSave.loading && <span>Salvando dados...</span>}
-              {formFields.map(({ id, label }) => (
-                <div key={id}>
-                  <Field type="text" name={id} label={label} />
+              <div className="d-flex justify-content-center">
+                <div className="row mx-md-n5 px-2">
+                  <Field type="text" name="nome" label="Nome" />
+                  <Field type="text" name="idade" label="Idade" />
+                  <Field type="text" name="estadoCivil" label="Estado civil" />
                 </div>
-              ))}
-              <button type="submit">Salvar</button>
+                <div className="row mx-md-n5 px-2">
+                  <Field type="text" name="cpf" label="CPF" />
+                  <Field type="text" name="cidade" label="Cidade" />
+                  <Field type="text" name="estado" label="Estado" />
+                </div>
+              </div>
+              <ButtonSubmit
+                className="d-flex justify-content-center shadow-sm mt-4 w-25"
+                type="submit"
+              >
+                Salvar
+              </ButtonSubmit>
             </Form>
           )}
         </Formik>
