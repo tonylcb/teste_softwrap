@@ -13,13 +13,41 @@ export default createGlobalStyle`
   color: #2F5EF7;
   transition: 0.3s ease;
   &:hover {
-  color: #172232;
+  color: #00B7F8;
   }
 }
 
 .container {
 background-color: #f8f9fa;
 max-width: 80%;
+min-height: 100vh;
+}
+
+
+.animeRight {
+  transform: translateX(200px);
+  opacity: 0;
+  animation: animeLeft 0.3s forwards;
+}
+
+@keyframes animeLeft {
+  to {
+    transform: initial;
+    opacity: initial;
+  }
+}
+
+.animeLeft {
+  transform: translateX(-200px);
+  opacity: 0;
+  animation: animeLeft 0.3s forwards;
+}
+
+@keyframes animeLeft {
+  to {
+    transform: initial;
+    opacity: initial;
+  }
 }
 
 `;

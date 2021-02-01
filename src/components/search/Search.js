@@ -4,7 +4,7 @@ import useApi from '../utilities/useApi';
 import InfiniteScroll from '../infiniteScroll/InfiniteScroll';
 
 const baseParams = {
-  _limit: 4,
+  _limit: 10,
   _sort: 'id',
   _order: 'desc',
 };
@@ -43,28 +43,36 @@ const Search = () => {
     });
     setPage(newPage);
   }
+  const ContainerLista = {
+    height: '326px',
+    overflowY: 'scroll',
+    border: '1px solid #e9ecef',
+  };
 
   return (
-    <div>
+    <div className="animeRight">
       <input
+        className="form-control mb-2 shadow"
         type="search"
-        placeholder="Buscar"
+        placeholder="Buscar por nome"
         value={search}
         onChange={(ev) => setSearch(ev.target.value)}
       />
-      <Lista
-        dados={setLoad.data}
-        loading={setLoad.loading}
-        error={setLoad.error}
-        refetch={() => {
-          load({ params: baseParams });
-        }}
-      />
-      {setLoad.data &&
-        !setLoad.loading &&
-        setLoad.data?.length < setLoad.total && (
-          <InfiniteScroll fetchMore={fetchMore} />
-        )}
+      <div style={ContainerLista}>
+        <Lista
+          dados={setLoad.data}
+          loading={setLoad.loading}
+          error={setLoad.error}
+          refetch={() => {
+            load({ params: baseParams });
+          }}
+        />
+        {setLoad.data &&
+          !setLoad.loading &&
+          setLoad.data?.length < setLoad.total && (
+            <InfiniteScroll fetchMore={fetchMore} />
+          )}
+      </div>
     </div>
   );
 };

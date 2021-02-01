@@ -1,21 +1,30 @@
 {
   "cadastro": [
     {
-      "nome": "teste3",
-      "idade": "12",
-      "estadoCivil": "teste3",
-      "cpf": "12",
-      "cidade": "teste3",
-      "estado": "teste3",
+      "nome": "Tony",
+      "idade": "29",
+      "estadoCivil": "Casado",
+      "cpf": "09259349419",
+      "cidade": "Recife",
+      "estado": "Pernambuco",
+      "id": 1
+    },
+    {
+      "nome": "Jonathan",
+      "idade": "54",
+      "estadoCivil": "Viúvo",
+      "cpf": "73582974647",
+      "cidade": "Recife",
+      "estado": "Pernambuco",
       "id": 3
     },
     {
-      "nome": "teste4",
-      "idade": "4",
-      "estadoCivil": "aaa",
-      "cpf": "4",
-      "cidade": "teste4",
-      "estado": "teste4",
+      "nome": "Clarissa",
+      "idade": "38",
+      "estadoCivil": "Casada",
+      "cpf": "8264826373",
+      "cidade": "Salvador",
+      "estado": "Bahia",
       "id": 4
     }
   ]

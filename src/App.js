@@ -8,7 +8,7 @@ import GlobalStyle from './GlobalStyle';
 function App() {
   return (
     <BrowserRouter>
-      <div className="container">
+      <div className="container shadow">
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />

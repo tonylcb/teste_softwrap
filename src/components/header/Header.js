@@ -26,7 +26,7 @@ const H3 = styled.h3`
 
 const Header = () => {
   return (
-    <header className="d-flex align-items-center py-4">
+    <header className="d-flex align-items-center pt-4 pb-4">
       <div className="col-3 text-center">
         <Logo src={logoSoftwrap} alt="logo softwrap" />
       </div>

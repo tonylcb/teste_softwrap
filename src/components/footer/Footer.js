@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-const ButtonRight = styled.button`
+const ButtonNav = styled.button`
   background-color: transparent;
   border: 1px solid #2f5ef7;
   border-radius: ${(props) => props.borderRadius || '0px 100px 100px 0px'};
@@ -19,11 +19,6 @@ const ButtonRight = styled.button`
     background-color: #2f5ef7;
     transform-origin: left;
     color: white;
-    &:focus {
-      outline: thin dotted;
-      outline: 0px auto -webkit-focus-ring-color;
-      outline-offset: 0px;
-    }
   }
 `;
 
@@ -32,15 +27,15 @@ const Footer = () => {
     <nav className="m-2">
       <ul className="d-flex justify-content-center p-0">
         <NavLink style={{ color: 'inherit', textDecoration: 'inherit' }} to="/">
-          <ButtonRight borderRadius="100px 0px 0px 100px">
+          <ButtonNav borderRadius="100px 0px 0px 100px">
             Novo cadastro
-          </ButtonRight>
+          </ButtonNav>
         </NavLink>
         <NavLink
           style={{ color: 'inherit', textDecoration: 'inherit' }}
           to="/lista"
         >
-          <ButtonRight>Lista</ButtonRight>
+          <ButtonNav>Lista</ButtonNav>
         </NavLink>
       </ul>
     </nav>

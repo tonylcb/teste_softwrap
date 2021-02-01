@@ -62,11 +62,12 @@ const Formulario = ({ id }) => {
   const fundoForm = {
     backgroundColor: 'white',
     borderRadius: '10px',
+    maxHeight: '332px',
   };
 
   const values = id ? loadInfo.data : initialValue;
   return (
-    <div>
+    <div className="animeLeft">
       {!values ? (
         <div>Carregando...</div>
       ) : (
