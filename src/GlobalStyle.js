@@ -14,20 +14,27 @@ export default createGlobalStyle`
   transition: 0.3s ease;
   &:hover {
   color: #00B7F8;
-  }
+}
+
+  @media (max-width: 700px) {
+    font-size: 1.2rem;
+  } ;
 }
 
 .container {
 background-color: #f8f9fa;
 max-width: 80%;
 min-height: 100vh;
+@media (max-width: 700px) {
+ max-width: 90%;
+  } ;
 }
 
 
 .animeRight {
-  transform: translateX(200px);
+  transform: translateX(100px);
   opacity: 0;
-  animation: animeLeft 0.3s forwards;
+  animation: animeLeft 0.5s forwards;
 }
 
 @keyframes animeLeft {
@@ -38,9 +45,9 @@ min-height: 100vh;
 }
 
 .animeLeft {
-  transform: translateX(-200px);
+  transform: translateX(-100px);
   opacity: 0;
-  animation: animeLeft 0.3s forwards;
+  animation: animeLeft 0.5s forwards;
 }
 
 @keyframes animeLeft {

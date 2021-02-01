@@ -20,6 +20,12 @@ const ButtonNav = styled.button`
     transform-origin: left;
     color: white;
   }
+  @media (max-width: 700px) {
+    max-width: 150px;
+    min-width: 100px;
+    font-size: 0.9rem;
+    padding: 10px 5px;
+  } ;
 `;
 
 const Footer = () => {

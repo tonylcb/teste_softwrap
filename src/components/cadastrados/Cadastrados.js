@@ -4,6 +4,13 @@ import { HiOutlineTrash } from 'react-icons/hi';
 import { FiEdit3 } from 'react-icons/fi';
 import styled from 'styled-components';
 
+const Icons = styled.aside`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+`;
 const Tabela = styled.div`
   display: flex;
   flex-flow: row nowrap;
@@ -24,13 +31,34 @@ const ButtonList = styled.button`
     background-color: ${(props) => props.hoverBgColor || '#00B7F8'};
   }
 `;
+
 const Dado = styled.li`
   font-size: 0.8rem;
 `;
+
 const Cadastrados = ({ dado, onClickDelete }) => {
   return (
     <div className="mb-3">
       <Tabela className="card shadow-sm">
+        <Icons>
+          <Link to={`/edit/${dado.id}`}>
+            <ButtonList type="button">
+              <FiEdit3 />
+            </ButtonList>
+          </Link>
+          <div>
+            <ButtonList
+              className="m-1"
+              backgroundColor="#dc523c"
+              hoverBgColor="#ff7a64"
+              type="button"
+              onClick={onClickDelete}
+            >
+              <HiOutlineTrash />
+            </ButtonList>
+          </div>
+        </Icons>
+
         <ul className="list-group list-group-flush w-100 border">
           <Dado className="list-group-item">
             <strong>Nome:</strong> {dado.nome}
@@ -54,20 +82,6 @@ const Cadastrados = ({ dado, onClickDelete }) => {
           </Dado>
         </ul>
       </Tabela>
-      <Link to={`/edit/${dado.id}`}>
-        <ButtonList type="button">
-          <FiEdit3 />
-        </ButtonList>
-      </Link>
-      <ButtonList
-        className="m-1"
-        backgroundColor="#dc523c"
-        hoverBgColor="#ff7a64"
-        type="button"
-        onClick={onClickDelete}
-      >
-        <HiOutlineTrash />
-      </ButtonList>
     </div>
   );
 };

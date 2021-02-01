@@ -20,6 +20,10 @@ const ButtonSubmit = styled.button`
     background-color: #ff7a64;
     transform-origin: left;
   }
+  @media (max-width: 499px) {
+    min-width: 150px;
+    font-size: 1rem;
+  } ;
 `;
 
 const initialValue = {
@@ -78,18 +82,18 @@ const Formulario = ({ id }) => {
         >
           {() => (
             <Form
-              className="shadow p-3 mb-5 bg-white rounded"
+              className="shadow-sm p-3 mb-5 bg-white rounded"
               style={fundoForm}
             >
               {setSave.loading && <span>Salvando dados...</span>}
               <div className="d-flex justify-content-center">
                 <div className="row mx-md-n5 px-2">
                   <Field type="text" name="nome" label="Nome" />
-                  <Field type="number" name="idade" label="Idade" />
+                  <Field type="text" name="idade" label="Idade" />
                   <Field type="text" name="estadoCivil" label="Estado civil" />
                 </div>
                 <div className="row mx-md-n5 px-2">
-                  <Field type="number" name="cpf" label="CPF" />
+                  <Field type="text" name="cpf" label="CPF" />
                   <Field type="text" name="cidade" label="Cidade" />
                   <Field type="text" name="estado" label="Estado" />
                 </div>

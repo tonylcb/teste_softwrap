@@ -9,32 +9,54 @@ const Logo = styled.img`
   max-width: 200px;
   width: 100%;
   min-width: 120px;
+
+  @media (max-width: 499px) {
+    max-width: 200px;
+    min-width: 180px;
+  } ;
 `;
 
 const H1 = styled.h1`
   font-size: 1.4rem;
+  @media (max-width: 700px) {
+    font-size: 1.2rem;
+  } ;
 `;
 
 const H2 = styled.h2`
   font-size: 1.2rem;
   color: #495057;
+  @media (max-width: 700px) {
+    font-size: 1rem;
+  } ;
 `;
 
 const H3 = styled.h3`
   font-size: 1.1rem;
+  @media (max-width: 700px) {
+    font-size: 0.9rem;
+  } ;
+`;
+
+const HeaderApp = styled.header`
+  @media (max-width: 499px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  } ;
 `;
 
 const Header = () => {
   return (
-    <header className="d-flex align-items-center pt-4 pb-4">
-      <div className="col-3 text-center">
+    <HeaderApp className="d-flex align-items-center pt-4 pb-4">
+      <div className=" text-center">
         <Logo src={logoSoftwrap} alt="logo softwrap" />
       </div>
-      <div className="col-6 text-center">
+      <div className=" text-center">
         <H1>Teste de habilidades - Processo seletivo Softwrap</H1>
         <H2>Formulário de cadastro</H2>
       </div>
-      <div className="col-3 text-center">
+      <div className=" text-center">
         <H3>Candidato: Tony Carvalho</H3>
         <div className="d-flex justify-content-center">
           <a
@@ -63,7 +85,7 @@ const Header = () => {
           </a>
         </div>
       </div>
-    </header>
+    </HeaderApp>
   );
 };
 
