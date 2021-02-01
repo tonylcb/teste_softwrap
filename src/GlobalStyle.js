@@ -16,9 +16,6 @@ export default createGlobalStyle`
   color: #00B7F8;
 }
 
-  @media (max-width: 700px) {
-    font-size: 1.2rem;
-  } ;
 }
 
 .container {

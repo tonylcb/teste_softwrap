@@ -24,7 +24,7 @@ const H1 = styled.h1`
 `;
 
 const H2 = styled.h2`
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #495057;
   @media (max-width: 700px) {
     font-size: 1rem;
@@ -42,7 +42,8 @@ const HeaderApp = styled.header`
   @media (max-width: 499px) {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    height: 250px;
+    justify-content: space-between;
   } ;
 `;
 

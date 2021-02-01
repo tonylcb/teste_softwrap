@@ -14,7 +14,7 @@ const ButtonNav = styled.button`
   cursor: pointer;
   background-color: unset;
   text-decoration: none;
-
+  margin-bottom: 20px;
   &:hover {
     background-color: #2f5ef7;
     transform-origin: left;
