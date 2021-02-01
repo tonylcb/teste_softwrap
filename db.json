@@ -1,24 +1,6 @@
 {
   "cadastro": [
     {
-      "nome": "teste1",
-      "idade": "21",
-      "estadoCivil": "teste1",
-      "cpf": "12",
-      "cidade": "teste1",
-      "estado": "teste1",
-      "id": 1
-    },
-    {
-      "nome": "teste2",
-      "idade": "2",
-      "estadoCivil": "teste2",
-      "cpf": "2",
-      "cidade": "teste2",
-      "estado": "teste2",
-      "id": 2
-    },
-    {
       "nome": "teste3",
       "idade": "12",
       "estadoCivil": "teste3",
@@ -30,20 +12,11 @@
     {
       "nome": "teste4",
       "idade": "4",
-      "estadoCivil": "teste4",
+      "estadoCivil": "aaa",
       "cpf": "4",
       "cidade": "teste4",
       "estado": "teste4",
       "id": 4
-    },
-    {
-      "nome": "teste5",
-      "idade": "5",
-      "estadoCivil": "teste5",
-      "cpf": "5",
-      "cidade": "teste5",
-      "estado": "teste5",
-      "id": 5
     }
   ]
 }

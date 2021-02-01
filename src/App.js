@@ -4,20 +4,21 @@ import Header from './components/header/Header';
 import Tabela from './pages/tabela/Tabela';
 import Footer from './components/footer/Footer';
 import Home from './pages/home/Home';
-
+import GlobalStyle from './GlobalStyle';
 function App() {
   return (
-    <>
-      <BrowserRouter className="container">
+    <BrowserRouter>
+      <div className="container">
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/tabela" element={<Tabela />} />
+          <Route path="/lista" element={<Tabela />} />
           <Route path="/edit/:id" element={<Home />} />
         </Routes>
         <Footer />
-      </BrowserRouter>
-    </>
+        <GlobalStyle />
+      </div>
+    </BrowserRouter>
   );
 }
 
